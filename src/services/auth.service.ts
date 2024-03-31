@@ -1,5 +1,3 @@
-import { AppDataSource } from "../config/data-source";
-import { User } from "../entities/user.entity";
 import { UserRepository } from "../repositories/user.repository";
 import { Register } from "../types/requests/user.register.type";
 import { UserBuilder } from "../entities/builders/user.builder";

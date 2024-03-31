@@ -6,26 +6,26 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column("text")
+    @Column({name: "NAME", nullable: false})
     name: string
 
-    @Column("text")
+    @Column({name: "SURNAME", nullable: false})
     surname: string
 
-    @Column("text")
+    @Column({name: "EMAIL", nullable: false})
     email: string
 
-    @Column("text")
+    @Column({name: "PASSWORD", nullable: false})
     password: string
 
     @Column({name: "IS_ACTIVE", nullable: false, default: true})
     isActive: Boolean
 
-    @Column()
+    @Column({name: "CREATED_AT", nullable: false})
     @CreateDateColumn()
     created_at: Date
 
-    @Column()
+    @Column({name: "UPDATED_AT", nullable: false})
     @UpdateDateColumn()
     updated_at: Date
 }

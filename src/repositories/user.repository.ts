@@ -1,4 +1,3 @@
-import { Repository } from "typeorm";
 import { User } from "../entities/user.entity";
 import { AppDataSource } from "../config/data-source";
 
@@ -13,6 +12,14 @@ export class UserRepository {
         return this.repository.findOne({
             where: {
                 id: id
+            }
+        })
+    }
+
+    findByEmail(email: string) {
+        return this.repository.findOne({
+            where: {
+                email: email
             }
         })
     }
