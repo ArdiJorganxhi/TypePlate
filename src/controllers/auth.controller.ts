@@ -9,5 +9,5 @@ const authService = new AuthService()
 export const register = async(req: Request, res: Response<GenericResponse<null>>): Promise<Response<GenericResponse<null>>> => {
     let request: Register = req.body
     await authService.register(request);
-    return res.json(new GenericResponse(true, "Registration is successful!", null))
+    return res.status(201).json(new GenericResponse(true, "Registration is successful!", null))
 }
