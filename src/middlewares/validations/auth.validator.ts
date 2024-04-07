@@ -16,3 +16,16 @@ export const registerValidator = [
         next();
     }
 ];
+
+export const loginValidator = [
+    body('email').notEmpty().isEmail(),
+    body('password').notEmpty().isString(),
+
+    (req: Request, res: Response<GenericResponse<ValidationError[]>>, next: NextFunction) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty) {
+            return res.status(400).json(new GenericResponse(false, "Bad Request", errors.array()));
+        }
+        next();
+    }
+]

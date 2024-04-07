@@ -1,7 +1,9 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import 'reflect-metadata'
 import { AppDataSource } from "./config/data-source";
 import { authRouter } from "./routes/auth.route";
+import { CustomError } from "./middlewares/errors/custom.error";
+import { GenericResponse } from "./response/generic.response";
 
 AppDataSource.initialize()
 .then(async () => {
@@ -9,7 +11,10 @@ AppDataSource.initialize()
 }).catch()
 
 const app = express()
+
 app.use(express.json())
+
+
 const port = 8080
 
 app.use('/api/v1/auth', authRouter)
